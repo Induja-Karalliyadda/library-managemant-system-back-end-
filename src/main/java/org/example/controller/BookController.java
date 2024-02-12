@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/book")
 @RequiredArgsConstructor
 public class BookController {
-    @Autowired
-    BookService service;
+
+   final BookService service;
 
     @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
@@ -22,7 +22,7 @@ public class BookController {
 
         service.addBook(book);
     }
-    @GetMapping
+    @GetMapping("/get")
     public Iterable<BookEntity> getBooks(){
         return service.getBooks();
     }
