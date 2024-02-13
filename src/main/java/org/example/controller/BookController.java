@@ -29,10 +29,9 @@ public class BookController {
     }
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<String> deleteBook(@PathVariable Long id){
-        return service.deleteBook(id) ?
-                ResponseEntity.ok("Deleted"):
-                ResponseEntity.notFound().build();
+    public String deleteBook(@PathVariable Long id){
+        service.deleteBook(id);
+        return "Deleted";
 
     }
     //search
